@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>jQScan Result</title>
+<link type="text/css" rel="stylesheet" href="jqtouch/jqtouch.css"/>
+<link type="text/css" rel="stylesheet" href="themes/jqt/theme.css"/>
+<script type="text/javascript" src="jqtouch/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="jqtouch/jqtouch.js"></script>
+<script type="text/javascript" >
+var jQT = $.jQTouch({
+    icon: 'icon.png'
+});
+</script>
+</head>
+<body>
+<div id="home">
+    <div class="toolbar">
+        <h1>价格查询</h1>    
+    </div>
+    <form method="post" action="result_jqtouch.html">
+        <!--ul-->
+            <li><input type="text" placeholder="条形码" name="barcode" id="barcode" /></li>
+            <li><input type="submit" class="submit" value="查找" /></li>
+        <!--/ul-->
+    </form>
+</div>
+<div id="content">
+    <ul>
+        <li><label>条形码：</label>6920180210683</li>
+        <li><label>编号：</label>64</li>
+        <li><label>名称：</label>Watson's</li>
+        <li><label>价格：</label>4.5</li>
+    </ul>
+</div>
+</body>
+</html>
