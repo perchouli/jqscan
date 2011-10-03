@@ -20,10 +20,16 @@ Resource
 Command
 -------
 ./android
+
 android create avd -n gPhone -t android-7
+
 mksdcard 60M ~/sdcard.img
+
 emulator -avd gPhone -netspeed edge -sdcard ~/sdcard.img
 
 #droidgap wiz
+
 ant debug
+
 abd -e install -r bin/jQScan-debug.apk
+
