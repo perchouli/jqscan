@@ -1,6 +1,6 @@
 jQScan
 =====
-用Javascript编写的Android程序，条形码扫描查询。
+用Javascript编写的Android程序，扫描条形码查询零食/饮料的价格。
 
 Requirements
 ------------
@@ -31,5 +31,5 @@ emulator -avd gPhone -netspeed edge -sdcard ~/sdcard.img
 
 ant debug
 
-abd -e install -r bin/jQScan-debug.apk
+adb -e install -r bin/jQScan-debug.apk
 
