@@ -7,36 +7,30 @@
 <link type="text/css" rel="stylesheet" href="jqtouch/jqtouch.css"/>
 <link type="text/css" rel="stylesheet" href="themes/jqt/theme.css"/>
 <style type="text/css">
-form { margin: 15px }
-form li {
-list-style: none;
-border-top: 0;
--webkit-border-top-left-radius: 8px;
--webkit-border-top-right-radius: 8px;
-border-top-left-radius: 8px 8px;
-border-top-right-radius: 8px 8px;
-color: #666;
-border-top: 1px solid #333;
-border-bottom: #555858;
-list-style-type: none;
-padding: 10px 10px 10px 10px;
-background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4c4d4e), to(#404142));
-overflow: hidden;
-}
-form li input { background-color: #4c4d4e; border:none;}
+
 </style>
 <script type="text/javascript" src="phonegap.js"></script>
 <script type="text/javascript" src="barcodescanner.js"></script>
 <script type="text/javascript" src="jqtouch/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="jqtouch/jqtouch.js"></script>
 <script type="text/javascript" >
+goodsData = {
+    "9787020050642":{"name":"乐事薯片红烩味(80g)","price":5,"number":"s41"},
+    
+}
+    
+    
 var jQT = $.jQTouch({
     icon: 'icon.png'
 });
 
 function testBarcode() { 
     window.plugins.barcodeScanner.scan( null, function(result) { 
-        $(".edgetoedge li span").first().text(result); 
+
+        $(".edgetoedge li span").first().text(result);
+        $(".edgetoedge li span").first().next().text(goodsData[result].number); 
+        $(".edgetoedge li span").first().next().next().text(goodsData[result].name); 
+        $(".edgetoedge li span").first().next().next().next().text(goodsData[result].price); 
     }, function(error) { 
         alert("Scanning failed: " + error); 
     }, {yesString: "Install"} 
@@ -51,11 +45,10 @@ function testBarcode() {
         <h1>价格查询</h1>
         <a class="button slideup"  onclick="testBarcode()" href="#result">开始扫描</a>
     </div>
-    <form method="post" action="#result">
-        <!--ul-->
-            <li><input type="text" placeholder="条形码" name="barcode" id="barcode" /></li>
+    <form method="post">
+        <ul>
             <li><button onclick="navigator.notification.alert('点击了扫描按钮');">Alert测试</button>
-        <!--/ul-->
+        </ul>
     </form>
 </div>
 
