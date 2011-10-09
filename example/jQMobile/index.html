@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>jQScan</title>
+<link type="text/css" rel="stylesheet" href="jquery.mobile-1.0rc1.min.css"/>
+<script type="text/javascript" src="jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="jquery.mobile-1.0rc1.min.js"></script>
+<script type="text/javascript" src="phonegap.js"></script>
+<script type="text/javascript" src="barcodescanner.js"></script>
+<script>
+goodsData = {
+    "9787020050642":{"name":"乐事薯片红烩味(80g)","price":4.5,"num":"s41"},
+    
+}
+    
+function testBarcode() { 
+    window.plugins.barcodeScanner.scan( null, function(result) { 
+        var name = goodsData[result].name;
+        $("#result h3").text('ceshi'); 
+    }, function(error) { 
+        alert("Scanning failed: " + error); 
+    }, {yesString: "Install"} 
+    ); 
+};
+</script>
+</head>
+<body onload="testBarcode()">
+<div  data-role="header"> 
+    <h1>查询结果</h1>
+    <a href="#" data-icon="arrow-l" onclick="testBarcode()">再次扫描</a>
+</div>
+<div id="result" class="ui-body ui-body-b">
+    <h3>结果</h3>
+</div>
+
+<script>
+$(document).bind("mobileinit", function(){
+    $.extend( $.mobile , {
+    foo: bar
+    });
+});
+
+
+
+</script>
+</body>
+</html>

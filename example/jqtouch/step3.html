@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>jQScan</title>
+<link type="text/css" rel="stylesheet" href="jqtouch/jqtouch.css"/>
+<link type="text/css" rel="stylesheet" href="themes/jqt/theme.css"/>
+<style type="text/css">
+form { margin: 15px }
+form li {
+list-style: none;
+border-top: 0;
+-webkit-border-top-left-radius: 8px;
+-webkit-border-top-right-radius: 8px;
+border-top-left-radius: 8px 8px;
+border-top-right-radius: 8px 8px;
+color: #666;
+border-top: 1px solid #333;
+border-bottom: #555858;
+list-style-type: none;
+padding: 10px 10px 10px 10px;
+background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4c4d4e), to(#404142));
+overflow: hidden;
+}
+form li input { background-color: #4c4d4e; border:none;}
+</style>
+<script type="text/javascript" src="jqtouch/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="jqtouch/jqtouch.js"></script>
+<script type="text/javascript" >
+var jQT = $.jQTouch({
+    icon: 'icon.png'
+});
+</script>
+</head>
+<body>
+<div id="home">
+    <div class="toolbar">
+        <h1>价格查询</h1>
+        <a class="button pop" href="#result">查看结果</a>
+    </div>
+    <form method="post" action="#result">
+        <!--ul-->
+            <li><input type="text" placeholder="条形码" name="barcode" id="barcode" /></li>
+            <li><input type="submit" class="submit" value="查找" /></li>
+        <!--/ul-->
+    </form>
+</div>
+
+<div id="result">
+    <div class="toolbar">
+        <h1>查询结果</h1>
+    </div>
+    <ul class="edgetoedge">
+        <li>条形码<span style="float:right">6920180210683</span></li>
+        <li>编号<span style="float:right">s41</span></li>
+        <li>名称<span style="float:right">乐事薯片红烩味(80g)</span></li>
+        <li>价格<span style="float:right">5</span></li>
+    </ul>
+</div>
+
+</body>
+</html>
