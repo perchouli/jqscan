@@ -5,7 +5,7 @@
 <title>jQScan</title>
 <link ref="apple-touch-icon-precomposed" href="icon.png" />
 <link type="text/css" rel="stylesheet" href="jqtouch/jqtouch.css"/>
-<link type="text/css" rel="stylesheet" href="themes/jqt/theme.css"/>
+<link type="text/css" rel="stylesheet" href="themes/apple/theme.css"/>
 <style type="text/css">
 
 </style>
@@ -15,8 +15,9 @@
 <script type="text/javascript" src="jqtouch/jqtouch.js"></script>
 <script type="text/javascript" >
 goodsData = {
-    "9787020050642":{"name":"乐事薯片红烩味(80g)","price":5,"number":"s41"},
-    
+    "6924743910447":{"name":"乐事薯片红烩味(80g)","price":5,"number":"s41"},
+    "6909409040898":{"name":"上好佳田园薯片(烤肉味)","price":3,"number":"s50"},
+	"6926265355126":{"name":"上好佳田园薯片(红绘肉味)","price":3,"number":"s50"},
 }
     
     
@@ -26,11 +27,10 @@ var jQT = $.jQTouch({
 
 function testBarcode() { 
     window.plugins.barcodeScanner.scan( null, function(result) { 
-
-        $(".edgetoedge li span").first().text(result);
-        $(".edgetoedge li span").first().next().text(goodsData[result].number); 
-        $(".edgetoedge li span").first().next().next().text(goodsData[result].name); 
-        $(".edgetoedge li span").first().next().next().next().text(goodsData[result].price); 
+        $("#g_barcode").text(result);
+        $("#g_number").text(goodsData[result].number); 
+        $("#g_name").text(goodsData[result].name); 
+        $("#g_price").text(goodsData[result].price); 
     }, function(error) { 
         alert("Scanning failed: " + error); 
     }, {yesString: "Install"} 
@@ -58,10 +58,10 @@ function testBarcode() {
         <a class="button back" href="#home">返回</a>
     </div>
     <ul class="edgetoedge">
-        <li>条形码<span style="float:right">6920180210683</span></li>
-        <li>编号<span style="float:right">s41</span></li>
-        <li>名称<span style="float:right">乐事薯片红烩味(80g)</span></li>
-        <li>价格<span style="float:right">5</span></li>
+        <li>条形码<span style="float:right" id="g_barcode"></span></li>
+        <li>编号<span style="float:right" id="g_number"></span></li>
+        <li>名称<span style="float:right" id="g_name"></span></li>
+        <li>价格<span style="float:right" id="g_price"></span></li>
     </ul>
 </div>
 
